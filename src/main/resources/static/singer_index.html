@@ -65,19 +65,39 @@
             color: #666;
         }
     </style>
-    <script src="./js/onload.js"></script>
+    <script src="js/singer.js"></script>
 </head>
 
-<body onload="getName(true)">
+<body onload="load(true)">
 <h1>Welcome to Singer Home</h1>
 
 <p id="output"></p> <!-- 用于显示歌手的名字 -->
 
-<form action="/submit" method="post">
+<form id="songForm" action="/submit" method="post" onsubmit="return handleSubmit(event)">
     <label for="song-name">请输入你想创建的歌曲名称:</label>
     <input type="text" id="song-name" name="songName" placeholder="请输入歌曲名称" required>
     <input type="submit" value="提交">
 </form>
+
+<h1>Song List</h1>
+<table id="songTable">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Singer ID</th>
+        <th>Title</th>
+        <th>Star</th>
+    </tr>
+    </thead>
+    <tbody>
+    <!-- Data will be inserted here -->
+    </tbody>
+</table>
+
+<script>
+    fetchSongs();
+</script>
+
 </body>
 
 </html>

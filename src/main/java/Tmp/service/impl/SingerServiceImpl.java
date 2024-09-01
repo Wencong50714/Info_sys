@@ -2,6 +2,7 @@ package Tmp.service.impl;
 
 import Tmp.mapper.SingerMapper;
 import Tmp.pojo.Singer;
+import Tmp.pojo.Song;
 import Tmp.pojo.User;
 import Tmp.service.SingerService;
 import Tmp.utils.Result;
@@ -9,6 +10,8 @@ import Tmp.utils.ResultCodeEnum;
 import com.alibaba.druid.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 
@@ -50,8 +53,24 @@ public class SingerServiceImpl implements SingerService {
         String username = singerMapper.getSingerName(id);
 
         if (username == null) {
-            return Result.build(null, ResultCodeEnum.DELETE_USERINFO_ERROR);
+            return Result.build(null, ResultCodeEnum.DEFAULT_ERROR);
         }
         return Result.ok(username);
+    }
+
+    @Override
+    public Result createNewSong(String songName, String singId) {
+        try {
+            singerMapper.insertSong(songName, singId);
+            return Result.ok(null);
+        } catch (Exception e) {
+            return Result.build(null, ResultCodeEnum.DEFAULT_ERROR);
+        }
+    }
+
+    @Override
+    public Result getSong(String singerId) {
+        List<Song> songs = singerMapper.getSong(singerId);
+        return Result.ok(songs);
     }
 }

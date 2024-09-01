@@ -79,7 +79,7 @@ CREATE TABLE song (
   id INT PRIMARY KEY AUTO_INCREMENT,
   singer_id INT,
   title VARCHAR(255) NOT NULL,
-  start INT,
+  star INT,
   FOREIGN KEY (singer_id) REFERENCES singer(id)
 );
 

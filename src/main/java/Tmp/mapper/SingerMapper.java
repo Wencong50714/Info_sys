@@ -1,6 +1,9 @@
 package Tmp.mapper;
 
 import Tmp.pojo.Singer;
+import Tmp.pojo.Song;
+
+import java.util.List;
 
 public interface SingerMapper {
 
@@ -9,4 +12,8 @@ public interface SingerMapper {
     void insertSinger(String username, String password);
 
     String getSingerName(String id);
+
+    void insertSong(String songname, String singerId);
+
+    List<Song> getSong(String singerId);
 }

@@ -30,4 +30,15 @@ public class SingerController {
 
         return singerService.register(username, password);
     }
+
+    @PostMapping("newsong")
+    public Result createNewSong(@RequestParam String songName, String singerId) {
+        return singerService.createNewSong(songName, singerId);
+    }
+
+    @PostMapping("getsong")
+    public Result getSong(@RequestParam String singerId) {
+
+        return singerService.getSong(singerId);
+    }
 }

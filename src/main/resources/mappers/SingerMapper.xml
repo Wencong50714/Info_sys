@@ -14,9 +14,20 @@
         WHERE id = #{id};
     </select>
 
+    <select id="getSong">
+        SELECT * FROM song
+        WHERE singer_id = #{singerId}
+        ORDER BY star DESC;
+    </select>
+
     <insert id="insertSinger">
         INSERT INTO singer(singer_name, password)
         VALUES (#{username}, #{password});
+    </insert>
+
+    <insert id="insertSong">
+        INSERT INTO song(singer_id, title, star)
+        VALUES (#{singerId}, #{songname}, 0);
     </insert>
 
 </mapper>
