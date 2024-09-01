@@ -20,6 +20,13 @@
 
 ### ROADMAP
 以下是一些开发目标
+
+前端:
 - [ ] 美化 [注册界面](./src/main/resources/static/register.html)
 - [ ] 美化 [登录界面](./src/main/resources/static/login.html)
-- 
+
+后端:
+- [ ] TODO
+
+### 注意
+本地测试的时候注意修改这个[application.yaml](./src/main/resources/application.yaml) 为自己本地 mysql 的账号密码数据库 
