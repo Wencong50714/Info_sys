@@ -39,7 +39,7 @@
 后端:
 - [ ] TODO
 
-### 注意
+### 本地运行测试时注意
 
 - 本地测试的时候注意修改这个[application.yaml](./src/main/resources/application.yaml) 为自己本地 mysql 的账号密码数据库
 - 本地需要在 navicat 中输入下面命令来建表
