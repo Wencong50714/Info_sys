@@ -75,7 +75,7 @@
         <button type="submit">Login</button>
     </form>
     <div class="register-link">
-        <p>Don't have an account? <a href="/register">Register here</a></p>
+        <p>Don't have an account? <a href="./register.html">Register here</a></p>
     </div>
 </div>
 
@@ -88,30 +88,46 @@
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
 
-        // 创建要发送到后端的数据字符串 (URL encoded)
-        const data = `role=${encodeURIComponent(role)}&username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
+        // 根据选择的角色动态设置 URL
+        let url;
+        if (role === 'singer') {
+            url = '/singer/login';
+        } else if (role === 'admin') {
+            url = '/admin/login';
+        } else {
+            url = '/user/login';
+        }
+
+        // 创建要发送到后端的数据字符串 (username : password)
+        const data = `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
+        url = `${url}?${data}`;
+
+        console.log(url);
 
         // 发送数据到后端
-        fetch('/login', {
-            method: 'POST',
+        fetch(url, {
+            method: 'GET',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded'
             },
-            body: data
         })
             .then(response => response.json())
             .then(data => {
-                if (data.success) {
+                if (data.code === 200) {
                     // 登录成功，跳转到相应页面
+                    var user_id = data.data;
                     switch (role) {
                         case 'user':
-                            window.location.href = '/home';
+                            window.location.href = '/user_index.html';
+                            // 存 id 到 localStorage 中
+                            localStorage.setItem("currentUser_token", user_id);
                             break;
                         case 'singer':
-                            window.location.href = '/singer/home';
+                            window.location.href = '/singer_index.html';
+                            localStorage.setItem("currentUser_token", user_id);
                             break;
                         case 'admin':
-                            window.location.href = '/admin/home';
+                            window.location.href = '/admin_index.html';
                             break;
                     }
                 } else {

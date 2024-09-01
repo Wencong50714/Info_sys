@@ -16,21 +16,15 @@ public class SingerController {
     @Autowired
     private SingerService singerService;
 
-    // TODO: Login Impl
-    // @GetMapping("login")
-    // public Result login(@RequestParam String username, @RequestParam String password) {
-    // Result result = userService.login(username, password);
-    // return result;
-    // }
+    @GetMapping("login")
+    public Result login(@RequestParam String username, @RequestParam String password) {
+
+        return singerService.login(username, password);
+    }
 
     @PostMapping("register")
     public Result register(@RequestParam String username, @RequestParam String password) {
 
-        Result result = singerService.register(username, password);
-        if (result.getCode().equals(ResultCodeEnum.USER_EXIST.getCode())) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result).getBody();
-        }
-        return ResponseEntity.ok(result).getBody();
+        return singerService.register(username, password);
     }
-
 }
