@@ -5,5 +5,8 @@ import Tmp.pojo.Singer;
 public interface SingerMapper {
 
     Singer findSingerBySingerName(String username);
+
     void insertSinger(String username, String password);
+
+    String getSingerName(String id);
 }

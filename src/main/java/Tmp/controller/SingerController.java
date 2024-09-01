@@ -19,6 +19,12 @@ public class SingerController {
         return singerService.login(username, password);
     }
 
+    @PostMapping("getname")
+    public Result getName(@RequestParam String id) {
+
+        return singerService.getUserId(id);
+    }
+
     @PostMapping("register")
     public Result register(@RequestParam String username, @RequestParam String password) {
 

@@ -5,7 +5,13 @@
 <mapper namespace="Tmp.mapper.SingerMapper">
 
     <select id="findSingerBySingerName" resultType="singer">
-        select * from singer where singer_name = #{username};
+        SELECT * FROM singer
+        WHERE singer_name = #{username};
+    </select>
+
+    <select id="getSingerName" resultType="String">
+        SELECT singer_name FROM singer
+        WHERE id = #{id};
     </select>
 
     <insert id="insertSinger">

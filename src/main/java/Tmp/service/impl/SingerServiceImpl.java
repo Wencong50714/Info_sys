@@ -26,12 +26,12 @@ public class SingerServiceImpl implements SingerService {
         }
 
         // 若传入的密码不为空，且与数据库返回的密码相同，登录成功
-        if(!StringUtils.isEmpty(password) && password.equals(loginSinger.getPassword())) {
+        if (!StringUtils.isEmpty(password) && password.equals(loginSinger.getPassword())) {
             return Result.ok(loginSinger.getId());
         }
 
-        //密码错误
-        return Result.build(null,ResultCodeEnum.PASSWORD_ERROR);
+        // 密码错误
+        return Result.build(null, ResultCodeEnum.PASSWORD_ERROR);
     }
 
     @Override
@@ -43,5 +43,15 @@ public class SingerServiceImpl implements SingerService {
             // 插入异常通常是已经存在相同用户名的用户
             return Result.build(null, ResultCodeEnum.USER_EXIST);
         }
+    }
+
+    @Override
+    public Result getUserId(String id) {
+        String username = singerMapper.getSingerName(id);
+
+        if (username == null) {
+            return Result.build(null, ResultCodeEnum.DELETE_USERINFO_ERROR);
+        }
+        return Result.ok(username);
     }
 }

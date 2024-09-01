@@ -13,7 +13,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-     // For test use
+    // For test use
     @GetMapping("login")
     public Result get_login(@RequestParam String username, @RequestParam String password) {
 

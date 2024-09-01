@@ -15,22 +15,22 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
-     @Override
-     public Result login(String username, String password) {
-         User loginUser = userMapper.findUserByUsername(username);
-         // 返回值为空意味着不存在该用户名
-         if (loginUser == null) {
+    @Override
+    public Result login(String username, String password) {
+        User loginUser = userMapper.findUserByUsername(username);
+        // 返回值为空意味着不存在该用户名
+        if (loginUser == null) {
             return Result.build(null, ResultCodeEnum.USERNAME_ERROR);
-         }
+        }
 
-         // 若传入的密码不为空，且与数据库返回的密码相同，登录成功
-         if(!StringUtils.isEmpty(password) && password.equals(loginUser.getPassword())) {
-             return Result.ok(loginUser.getId());
-         }
+        // 若传入的密码不为空，且与数据库返回的密码相同，登录成功
+        if (!StringUtils.isEmpty(password) && password.equals(loginUser.getPassword())) {
+            return Result.ok(loginUser.getId());
+        }
 
-         //密码错误
-         return Result.build(null,ResultCodeEnum.PASSWORD_ERROR);
-     }
+        // 密码错误
+        return Result.build(null, ResultCodeEnum.PASSWORD_ERROR);
+    }
 
     @Override
     public Result register(String username, String password) {
