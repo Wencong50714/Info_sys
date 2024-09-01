@@ -37,12 +37,25 @@
 - [ ] 将前端 [HTML](./src/main/resources/static) 中的 样式 CSS 提取成单独的文件, 将其放在 css 文件夹下, 同时修改 HTML 代码，使其更加整洁
 
 后端:
-- [ ] TODO
+- [x] 完成用户/歌手的注册功能
+- [x] 完成用户/歌手的登录功能
+- [ ] 用户创建/删除 playlist
+- [ ] 用户查看 playlist 中的歌
+- [ ] 用户搜索歌曲
+- [ ] 用户点赞歌曲
+- [ ] 歌手发布/删除歌曲
+- [ ] 系统管理员查看后台 用户/歌手/歌曲
+- [ ] 系统管理员按照歌曲收藏数目排序
+
+Additional
+- [ ] 创建一个 UserInfo, 完成 UserInfo 相关内容 (增删改查)
+- [ ] 创建一个 SingerInfo, 完成 SingerInfo 相关内容 (增删改查)
+完成后在下面建表 sql 命令中添加对应的命令
 
 ### 本地运行测试时注意
 
 - 本地测试的时候注意修改这个[application.yaml](./src/main/resources/application.yaml) 为自己本地 mysql 的账号密码数据库
-- 本地需要在 navicat 中输入下面命令来建表
+- 本地需要在 navicat 中输入下面的 sql命令来建表
 
 ```sql
 create table user
