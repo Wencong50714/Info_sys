@@ -17,3 +17,9 @@
   - 每个用户都有默认的收藏播放列表
 - 为播放列表添加/删除歌曲
   - 收藏/取消收藏歌曲属于此种操作
+
+### ROADMAP
+以下是一些开发目标
+- [ ] 美化 [注册界面](./src/main/resources/static/register.html)
+- [ ] 美化 [登录界面](./src/main/resources/static/login.html)
+- 

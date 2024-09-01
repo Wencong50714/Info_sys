@@ -1,4 +1,5 @@
 package Tmp.mapper;
 
-public class SingerMapper {
+public interface SingerMapper {
+    void insertSinger(String username, String password);
 }

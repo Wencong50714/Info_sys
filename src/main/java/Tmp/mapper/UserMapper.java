@@ -1,4 +1,5 @@
 package Tmp.mapper;
 
-public class UserMapper {
+public interface UserMapper {
+    void insertUser(String username, String password);
 }
