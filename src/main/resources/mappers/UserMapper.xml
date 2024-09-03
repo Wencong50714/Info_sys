@@ -33,4 +33,8 @@
         DELETE FROM playlist
         WHERE id = #{play_list_id};
     </delete>
+
+    <select id="getAllSongs" resultType="Song">
+        SELECT * FROM song;
+    </select>
 </mapper>

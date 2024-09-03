@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>歌曲点赞系统</title>
+    <script src="js/songs_repo.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -76,34 +77,22 @@
         }
     </style>
 </head>
-<body>
+<body onload="repo_load()">
 
 <h2>歌曲点赞系统</h2>
 
-<table>
+<table id="songTable">
     <thead>
     <tr>
-        <th>歌曲名称</th>
-        <th>歌手</th>
-        <th>操作</th>
+        <th>ID</th>
+        <th>Singer</th>
+        <th>Title</th>
+        <th>Stars</th>
+        <th>Op</th>
     </tr>
     </thead>
     <tbody>
-    <tr>
-        <td>歌曲1</td>
-        <td>歌手A</td>
-        <td><span class="like-button" onclick="openModal(this)">&#9734;</span></td>
-    </tr>
-    <tr>
-        <td>歌曲2</td>
-        <td>歌手B</td>
-        <td><span class="like-button" onclick="openModal(this)">&#9734;</span></td>
-    </tr>
-    <tr>
-        <td>歌曲3</td>
-        <td>歌手C</td>
-        <td><span class="like-button" onclick="openModal(this)">&#9734;</span></td>
-    </tr>
+    <!-- Data will be inserted here -->
     </tbody>
 </table>
 
@@ -117,36 +106,6 @@
     </div>
 </div>
 
-<script>
-    let currentLikeElement = null;
-
-    function openModal(element) {
-        currentLikeElement = element;
-        document.getElementById('myModal').style.display = 'flex';
-    }
-
-    function closeModal() {
-        document.getElementById('myModal').style.display = 'none';
-    }
-
-    function submitPlaylist() {
-        const playlistName = document.getElementById('playlistName').value;
-        if (playlistName) {
-            alert(`歌曲已添加到播放列表: ${playlistName}`);
-            currentLikeElement.classList.add('liked');
-            currentLikeElement.innerHTML = '&#9733;';
-            closeModal();
-        } else {
-            alert('请输入播放列表名称！');
-        }
-    }
-
-    window.onclick = function(event) {
-        if (event.target === document.getElementById('myModal')) {
-            closeModal();
-        }
-    }
-</script>
 
 </body>
 </html>

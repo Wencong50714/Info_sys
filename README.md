@@ -33,6 +33,7 @@
 以下是一些开发目标
 
 前端:
+- [ ] 用户可以在[用户界面](./src/main/resources/static/user_index.html) 里跳转到 [songs_repo](./src/main/resources/static/songs_repo.html)
 - [ ] 美化 [注册界面](./src/main/resources/static/register.html)
 - [ ] 美化 [登录界面](./src/main/resources/static/login.html)
 - [ ] 美化 [歌手界面](./src/main/resources/static/singer_index.html)
@@ -44,7 +45,8 @@
 - [x] 完成用户/歌手的登录功能
 - [x] 用户创建/删除 playlist
 - [ ] 用户查看 playlist 中的歌
-- [ ] 用户搜索歌曲
+- [ ] 用户给 playlist 添加歌曲
+- [ ] 用户查看所有 playlist 中的歌
 - [ ] 用户点赞歌曲
 - [x] 歌手发布歌曲
 - [x] 歌手查看自己的歌曲

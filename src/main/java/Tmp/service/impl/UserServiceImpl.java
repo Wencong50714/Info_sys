@@ -2,6 +2,7 @@ package Tmp.service.impl;
 
 import Tmp.mapper.UserMapper;
 import Tmp.pojo.Playlist;
+import Tmp.pojo.Song;
 import Tmp.pojo.User;
 import Tmp.service.UserService;
 import Tmp.utils.Result;
@@ -88,6 +89,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Result getAllSongs() {
-        return null;
+
+        List<Song> songs = userMapper.getAllSongs();
+
+        for (Song song : songs) {
+            System.out.println(song.toString());
+        }
+        return Result.ok(songs);
     }
 }
