@@ -9,6 +9,16 @@
         WHERE username = #{username};
     </select>
 
+    <select id="findSongById" resultType="song">
+        SELECT * FROM song
+        WHERE id = #{id};
+    </select>
+
+    <select id="findPlaylistById" resultType="playlist">
+        SELECT * FROM playlist
+        WHERE id = #{id};
+    </select>
+
     <insert id="insertUser">
         INSERT INTO user(username, password)
         VALUES (#{username}, #{password});
@@ -37,4 +47,26 @@
     <select id="getAllSongs" resultType="Song">
         SELECT * FROM song;
     </select>
+
+    <insert id="add_song_to_playlist">
+        INSERT INTO playlist_song_link (playlist_id, song_id)
+        VALUES (#{playlist_id}, #{song_id});
+    </insert>
+
+    <select id="getSongsIdFromPlaylist" resultType="String">
+        SELECT song_id FROM playlist_song_link
+        WHERE playlist_id = #{playlist_id};
+    </select>
+
+    <update id="incSongStar">
+        UPDATE song
+        SET star = star + 1
+        WHERE id = #{song_id};
+    </update>
+
+    <update id="decSongStar">
+        UPDATE song
+        SET star = star - 1
+        WHERE id = #{song_id};
+    </update>
 </mapper>

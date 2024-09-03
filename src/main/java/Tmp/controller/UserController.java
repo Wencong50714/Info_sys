@@ -52,4 +52,24 @@ public class UserController {
     public Result get_all_song() {
         return userService.getAllSongs();
     }
+
+    @PostMapping("get_playlist_songs")
+    public Result find_song_in_playlist(@RequestParam String playlist_id) {
+        return userService.getPlayListSongs(playlist_id);
+    }
+
+    @PostMapping("add_song_to_playlist")
+    public Result add_song_to_playlist(@RequestParam String playlist_id, @RequestParam String song_id) {
+        return userService.addSongToPlayList(playlist_id, song_id);
+    }
+
+    @PostMapping("star_song")
+    public Result starSong(@RequestParam String song_id) {
+        return userService.starSong(song_id);
+    }
+
+    @PostMapping("unstar_song")
+    public Result unstarSong(@RequestParam String song_id) {
+        return userService.unstarSong(song_id);
+    }
 }

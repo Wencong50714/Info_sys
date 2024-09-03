@@ -15,7 +15,13 @@ public interface UserService {
 
     Result showPlatList(String user_id);
 
-//     Result addSongToPlayList(String playlist_id, String song_id);
+    Result addSongToPlayList(String playlist_id, String song_id);
 
     Result getAllSongs();
+
+    Result getPlayListSongs(String playlist_id);
+
+    Result starSong(String song_id);
+
+    Result unstarSong(String song_id);
 }
