@@ -26,8 +26,8 @@
     </insert>
 
     <insert id="insertSong">
-        INSERT INTO song(singer_id, title, star)
-        VALUES (#{singerId}, #{songname}, 0);
+        INSERT INTO song(singer_id, title, star, singer_name)
+        VALUES (#{singerId}, #{songname}, 0, #{singerName});
     </insert>
 
 </mapper>

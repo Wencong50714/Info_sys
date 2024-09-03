@@ -73,10 +73,6 @@ function handleSubmit(event) {
             }
 
         })
-        .catch((error) => {
-            console.error('Error:', error);
-            alert('Submit song failed!');
-        });
 
     window.location.href = window.location.href; // 刷新界面
 }
@@ -101,11 +97,14 @@ function fetchSongs() {
             const tableBody = document.querySelector('#songTable tbody');
             tableBody.innerHTML = ''; // Clear existing rows
 
+            console.log("Begin to render");
+
             data.data.forEach(song => {
+                console.log(song.singerName);
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${song.id}</td>
-                    <td>${song.singerId}</td>
+                    <td>${song.singerName}</td>
                     <td>${song.title}</td>
                     <td>${song.star}</td>
                 `;

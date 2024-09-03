@@ -85,4 +85,9 @@ public class UserServiceImpl implements UserService {
             return Result.build(null, ResultCodeEnum.DEFAULT_ERROR);
         }
     }
+
+    @Override
+    public Result getAllSongs() {
+        return null;
+    }
 }

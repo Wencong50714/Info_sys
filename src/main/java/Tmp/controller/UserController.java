@@ -47,4 +47,9 @@ public class UserController {
     public Result fetch_playlist(@RequestParam String user_id) {
         return userService.showPlatList(user_id);
     }
+
+    @GetMapping("all_song")
+    public Result get_all_song() {
+        return userService.getAllSongs();
+    }
 }

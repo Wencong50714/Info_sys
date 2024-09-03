@@ -59,9 +59,12 @@ public class SingerServiceImpl implements SingerService {
     }
 
     @Override
-    public Result createNewSong(String songName, String singId) {
+    public Result createNewSong(String songName, String singerId) {
         try {
-            singerMapper.insertSong(songName, singId);
+            String singerName = singerMapper.getSingerName(singerId);
+
+            singerMapper.insertSong(songName, singerId, singerName);
+
             return Result.ok(null);
         } catch (Exception e) {
             return Result.build(null, ResultCodeEnum.DEFAULT_ERROR);
@@ -71,6 +74,7 @@ public class SingerServiceImpl implements SingerService {
     @Override
     public Result getSong(String singerId) {
         List<Song> songs = singerMapper.getSong(singerId);
+
         return Result.ok(songs);
     }
 }

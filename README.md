@@ -83,6 +83,7 @@ CREATE TABLE song (
   singer_id INT,
   title VARCHAR(255) NOT NULL,
   star INT,
+  singer_name VARCHAR(255) NOT NULL,
   FOREIGN KEY (singer_id) REFERENCES singer(id)
 );
 

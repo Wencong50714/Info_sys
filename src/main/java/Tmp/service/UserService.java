@@ -9,15 +9,13 @@ public interface UserService {
 
     Result getUsernameById(String user_id);
 
-    // Result starSong(String song_id);
-    //
-    // Result unStarSong(String song_id);
-
     Result createPlayList(String user_id, String name, String description);
 
     Result deletePlayList(String play_list_id);
 
     Result showPlatList(String user_id);
 
-    // Result addSongToPlayList(String playlist_id, String song_id);
+//     Result addSongToPlayList(String playlist_id, String song_id);
+
+    Result getAllSongs();
 }
