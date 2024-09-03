@@ -49,7 +49,7 @@ public class SingerServiceImpl implements SingerService {
     }
 
     @Override
-    public Result getUserId(String id) {
+    public Result getSingernameById(String id) {
         String username = singerMapper.getSingerName(id);
 
         if (username == null) {

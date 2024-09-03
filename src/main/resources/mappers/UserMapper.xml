@@ -5,7 +5,8 @@
 <mapper namespace="Tmp.mapper.UserMapper">
 
     <select id="findUserByUsername" resultType="user">
-        select * from user where username = #{username};
+        SELECT * FROM user
+        WHERE username = #{username};
     </select>
 
     <insert id="insertUser">
@@ -13,4 +14,23 @@
         VALUES (#{username}, #{password});
     </insert>
 
+    <select id="getUsername">
+        SELECT username FROM user
+        WHERE id = #{user_id};
+    </select>
+
+    <select id="findPlayListByUserId" resultType="playlist">
+        SELECT * FROM playlist
+        WHERE user_id = #{user_id};
+    </select>
+
+    <insert id="createPlayList">
+        INSERT INTO playlist(user_id, play_list_name, description)
+        VALUES (#{user_id}, #{name}, #{description});
+    </insert>
+
+    <delete id="deletePlayList">
+        DELETE FROM playlist
+        WHERE id = #{play_list_id};
+    </delete>
 </mapper>

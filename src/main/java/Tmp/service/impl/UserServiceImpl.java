@@ -1,6 +1,7 @@
 package Tmp.service.impl;
 
 import Tmp.mapper.UserMapper;
+import Tmp.pojo.Playlist;
 import Tmp.pojo.User;
 import Tmp.service.UserService;
 import Tmp.utils.Result;
@@ -8,6 +9,8 @@ import Tmp.utils.ResultCodeEnum;
 import com.alibaba.druid.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -40,6 +43,46 @@ public class UserServiceImpl implements UserService {
         } catch (Exception e) {
             // 插入异常通常是已经存在相同用户名的用户
             return Result.build(null, ResultCodeEnum.USER_EXIST);
+        }
+    }
+
+    @Override
+    public Result createPlayList(String user_id, String name, String description) {
+        try {
+            userMapper.createPlayList(user_id, name, description);
+            return Result.ok(null);
+        } catch (Exception e) {
+            // 插入异常通常是已经存在相同用户名的用户
+            return Result.build(null, ResultCodeEnum.DEFAULT_ERROR);
+        }
+    }
+
+    @Override
+    public Result deletePlayList(String play_list_id) {
+        try {
+            userMapper.deletePlayList(play_list_id);
+            return Result.ok(null);
+        } catch (Exception e) {
+            // 插入异常通常是已经存在相同用户名的用户
+            return Result.build(null, ResultCodeEnum.DEFAULT_ERROR);
+        }
+    }
+
+    @Override
+    public Result showPlatList(String user_id) {
+
+        List<Playlist> playlists = userMapper.findPlayListByUserId(user_id);
+        return Result.ok(playlists);
+    }
+
+    @Override
+    public Result getUsernameById(String user_id) {
+        try {
+            String name = userMapper.getUsername(user_id);
+            return Result.ok(name);
+        } catch (Exception e) {
+            // 插入异常通常是已经存在相同用户名的用户
+            return Result.build(null, ResultCodeEnum.DEFAULT_ERROR);
         }
     }
 }

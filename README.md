@@ -26,7 +26,8 @@
 ### MileStone
 - tag v0.1 完成 用户/歌手 注册功能
 - tag v0.2 完成 用户/歌手 登录功能, 并在前端页面保留了用户的 独有 id, 可用于后续操作
-- tag v0.3 完成歌手创建歌曲已经显示已发布歌曲的功能
+- tag v0.3 完成 歌手 创建歌曲已经显示已发布歌曲的功能
+- tag v0.4 完成 用户 创建/删除/显示 playlist 的功能
 
 ### ROADMAP
 以下是一些开发目标
@@ -34,14 +35,14 @@
 前端:
 - [ ] 美化 [注册界面](./src/main/resources/static/register.html)
 - [ ] 美化 [登录界面](./src/main/resources/static/login.html)
-- - [ ] 美化 [歌手界面](./src/main/resources/static/singer_index.html)
+- [ ] 美化 [歌手界面](./src/main/resources/static/singer_index.html)
 - [ ] 将前端 [HTML](./src/main/resources/static) 中的 JavaScript 脚本提取成单独的文件，并将其存放在 js 文件夹下，同时修改 HTML 代码，使其更加整洁
 - [ ] 将前端 [HTML](./src/main/resources/static) 中的 样式 CSS 提取成单独的文件, 将其放在 css 文件夹下, 同时修改 HTML 代码，使其更加整洁
  
 后端:
 - [x] 完成用户/歌手的注册功能
 - [x] 完成用户/歌手的登录功能
-- [ ] 用户创建/删除 playlist
+- [x] 用户创建/删除 playlist
 - [ ] 用户查看 playlist 中的歌
 - [ ] 用户搜索歌曲
 - [ ] 用户点赞歌曲

@@ -22,7 +22,7 @@ public class SingerController {
     @PostMapping("getname")
     public Result getName(@RequestParam String id) {
 
-        return singerService.getUserId(id);
+        return singerService.getSingernameById(id);
     }
 
     @PostMapping("register")

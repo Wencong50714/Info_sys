@@ -1,7 +1,7 @@
 var id;
 
-function load(is_singer) {
-    getName(is_singer);
+function singer_load() {
+    getName();
     fetchSongs();
 }
 

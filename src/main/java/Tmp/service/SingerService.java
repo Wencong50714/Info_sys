@@ -7,7 +7,7 @@ public interface SingerService {
 
     Result register(String username, String password);
 
-    Result getUserId(String id);
+    Result getSingernameById(String id);
 
     Result createNewSong(String songName, String singerId);
 
