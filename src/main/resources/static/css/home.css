@@ -105,7 +105,7 @@ audio {
 }
 
 .cta-btn {
-    background-color: #1e90ff;
+    background-color: #1a1a1a;
     color: white;
     border: none;
     padding: 1em 2em;
@@ -117,7 +117,7 @@ audio {
 }
 
 .cta-btn:hover {
-    background-color: #1c86ee;
+    background-color: #000000;
 }
 
 .explore-section {
@@ -157,4 +157,5 @@ audio {
     background-color: #000;
     color: #999;
     bottom: 0%;
+    height: 50px;
 }
