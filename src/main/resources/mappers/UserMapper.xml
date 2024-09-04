@@ -53,6 +53,11 @@
         VALUES (#{playlist_id}, #{song_id});
     </insert>
 
+    <delete id="remove_song_from_playlist">
+        DELETE FROM playlist_song_link
+        WHERE song_id = #{song_id};
+    </delete>
+
     <select id="getSongsIdFromPlaylist" resultType="String">
         SELECT song_id FROM playlist_song_link
         WHERE playlist_id = #{playlist_id};

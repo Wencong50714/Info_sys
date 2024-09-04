@@ -29,6 +29,8 @@ public interface UserMapper {
 
     void add_song_to_playlist(String playlist_id, String song_id);
 
+    void remove_song_from_playlist(String playlist_id, String song_id);
+
     void incSongStar(String song_id);
 
     void decSongStar(String song_id);

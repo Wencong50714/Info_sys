@@ -4,7 +4,7 @@ spring:
     druid:
     url: jdbc:mysql://localhost:3306/music_info_sys #其中的 IS_DB 是数据库名称
     username: root
-    password: 'Dwg20021105'
+    password: '08313014'
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:

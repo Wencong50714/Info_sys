@@ -17,6 +17,8 @@ public interface UserService {
 
     Result addSongToPlayList(String playlist_id, String song_id);
 
+    Result removeSongFromPlaylist(String playlist_id, String song_id);
+
     Result getAllSongs();
 
     Result getPlayListSongs(String playlist_id);
