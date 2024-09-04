@@ -4,7 +4,7 @@ spring:
     druid:
     url: jdbc:mysql://localhost:3306/music_info_sys #其中的 IS_DB 是数据库名称
     username: root
-    password: '08313014'
+    password: 'Dwg20021105'
     driver-class-name: com.mysql.cj.jdbc.Driver
 
 mybatis:
@@ -16,4 +16,4 @@ mybatis:
     log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
 
 server:
-  port: 8080
+  port: 8081

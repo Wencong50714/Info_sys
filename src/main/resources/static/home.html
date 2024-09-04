@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Themed Homepage</title>
+    <link rel="stylesheet" href="./css/home.css">
+</head>
+
+<body>
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">MyMusic</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#explore">Explore</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <!-- <button class="login-btn" onclick="location.href='login.html'">Login/Register</button> -->
+        </nav>
+        <div class="header-content">
+            <h1>Discover the Soundtrack of Your Life</h1>
+            <p>Tune into your next favorite song</p>
+            <button class="cta-btn" onclick="location.href='src/main/resources/static/login.html'">Login / Register</button>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section id="explore" class="explore-section">
+        <h2>Featured Artists & Albums</h2>
+        <div id="waver">
+            <canvas id="audio-visualizer"></canvas>
+            <audio id="audio" controls style="position: fixed; bottom: 20px; left: 20px;">
+                <source src="./media/homeMusic.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="card-container">
+            <!-- Card Examples -->
+            <div class="music-card">
+                <img src="./media/啊.JPG" alt="Artist 1">
+                <h3>Artist 1</h3>
+                <p>Album 1</p>
+            </div>
+            <div class="music-card">
+                <img src="./media/啊.JPG" alt="Artist 2">
+                <h3>Artist 2</h3>
+                <p>Album 2</p>
+            </div>
+            <!-- More cards... -->
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <p>&copy; 2024 MyMusic. All rights reserved.</p>
+    </footer>
+
+    <script src="./js/home.js"></script>
+</body>
+
+</html>

@@ -78,6 +78,8 @@
     document.getElementById('registerForm').addEventListener('submit', function(event) {
         event.preventDefault();
 
+        console.log("DEBUG: ...")
+
         // 获取表单数据
         const username = document.getElementById('username').value;
         const password = document.getElementById('password').value;
@@ -86,8 +88,12 @@
         // 动态设置 URL
         const url = isSinger ? '/singer/register' : '/user/register';
 
+        console.log(url)
+
         // 创建要发送到后端的数据字符串 (URL encoded)
         const data = `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
+
+        console.log(data)
 
         // 发送数据到后端
         fetch(url, {  // 动态 URL
