@@ -103,6 +103,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public Result removeSongFromPlaylist(String playlist_id, String song_id) {
+
+        if (userMapper.findPlaylistById(playlist_id) == null) {
+            return Result.build(null, ResultCodeEnum.PLAYLIST_NOT_EXIST);
+        } else if (userMapper.findSongById(song_id) == null) {
+            return Result.build(null, ResultCodeEnum.SONG_NOT_EXIST);
+        }
+
+        userMapper.remove_song_from_playlist(playlist_id, song_id);
+
+        return Result.ok(null);
+    }
+
+    @Override
     public Result getAllSongs() {
 
         List<Song> songs = userMapper.getAllSongs();

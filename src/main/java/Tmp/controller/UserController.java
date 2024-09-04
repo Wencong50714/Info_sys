@@ -63,6 +63,11 @@ public class UserController {
         return userService.addSongToPlayList(playlist_id, song_id);
     }
 
+    @PostMapping("remove_song_from_playlist")
+    public Result remove_song_to_playlist(@RequestParam String playlist_id, @RequestParam String song_id) {
+        return userService.removeSongFromPlaylist(playlist_id, song_id);
+    }
+
     @PostMapping("star_song")
     public Result starSong(@RequestParam String song_id) {
         return userService.starSong(song_id);
