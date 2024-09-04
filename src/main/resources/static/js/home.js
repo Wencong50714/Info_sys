@@ -21,8 +21,8 @@ document.addEventListener('DOMContentLoaded', function () {
         canvas.height = window.innerHeight;
     }
 
-    audioElement.volume = 1.0; // 确保音量为最大
-    audioElement.muted = false; // 确保没有静音
+    // audioElement.volume = 1.0; // 确保音量为最大
+    // audioElement.muted = false; // 确保没有静音
 
     function startAudioContext() {
         if (!audioCtx) {
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function () {
         let x = 0;
 
         for (let i = 0; i < bufferLength; i++) {
-            barHeight = dataArray[i];
+            barHeight = 3*dataArray[i];
             // console.log('Bar Height:', barHeight); // 输出每个频率条的高度
 
             const r = barHeight + 25 * (i / bufferLength);
