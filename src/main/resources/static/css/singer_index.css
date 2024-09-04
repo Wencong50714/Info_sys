@@ -1,0 +1,177 @@
+/* 全局样式 */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, #1e1e1e 0%, #2d2d2d 100%);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+body.fade-in {
+    opacity: 1;
+}
+
+/* 标题样式 */
+h1, h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #f0f0f0;
+    font-weight: 700;
+    text-align: center;
+}
+
+h2 {
+    margin-top: 40px;
+}
+
+/* 表单样式 */
+.form-container {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+label {
+    font-size: 18px;
+    color: #fff;
+    display: block;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+input[type="text"]::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+input[type="text"]:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+input[type="submit"] {
+    width: 40%;
+    padding: 10px;
+    background-color: #ff4757;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+#song-name{
+    width: 90%;
+}
+
+/* 表格样式 */
+table {
+    width: 80%;
+    border-collapse: collapse;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+    color: #fff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+    background-color: rgba(255, 255, 255, 0.1);
+    font-weight: bold;
+    color: #ccc;
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* 动画 */
+body {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+body.fade-in {
+    opacity: 1;
+}
+
+/* 返回按钮样式 */
+/* From Uiverse.io by Jedi-hongbin */ 
+#back-btn {
+    display: flex;
+    height: 3em;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee4b;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    background: #ff6b81;
+    color: #f0f0f0;
+    position: absolute;
+    top: 10em;
+    left: 10em;
+   }
+   
+   #back-btn > svg {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+    font-weight: 200;
+    transition: all 0.4s ease-in;
+    color: #f0f0f0;
+   }
+   
+   #back-btn:hover > svg {
+    font-size: 1.2em;
+    transform: translateX(-5px);
+   }
+   
+   #back-btn:hover {
+    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    transform: translateY(-2px);
+   }

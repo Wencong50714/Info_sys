@@ -27,14 +27,15 @@ function fetch_all_songs() {
         // 渲染歌曲数据
         data.data.forEach(song => {
             const row = document.createElement('tr');
+            row.setAttribute('data-id', song.id); // 设置歌曲ID，便于后续更新star数量
             row.innerHTML = `
                 <td>${song.id}</td>
                 <td>${song.singerName}</td>
                 <td>${song.title}</td>
                 <td>
                     <label class="container">
-                        <input type="checkbox" onchange="starSong(${song.id})">
-                        <svg height="24px" id="Layer_1" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
+                        <input type="checkbox" onchange="starSong(${song.id})" ${song.userHasStarred ? 'checked' : ''}>
+                        <svg height="24px" viewBox="0 0 24 24" width="24px" xmlns="http://www.w3.org/2000/svg">
                             <g>
                                 <g>
                                     <path d="M9.362,9.158c0,0-3.16,0.35-5.268,0.584c-0.19,0.023-0.358,0.15-0.421,0.343s0,0.394,0.14,0.521
@@ -46,8 +47,10 @@ function fetch_all_songs() {
                                 </g>
                             </g>
                         </svg>
-                    </label>
+                        <span class="star-count-label" id="star-count-${song.id}">${song.star}</span> <!-- 添加 star 数量展示 -->
                 </td>
+                    </label>
+                    
                 <td><button class="op-btn" onclick="openModal(${song.id})">Add to Playlist</button></td>
             `;
             tableBody.appendChild(row);
@@ -71,11 +74,21 @@ function starSong(songId) {
     })
     .then(response => response.json())
     .then(data => {
+        console.log('Star response:', data); // 调试信息
+
         if (data.code === 508) {
             alert('Song does not exist!');
-        } else {
+        } else if (data.code === 200) {
             alert('Song liked successfully!');
-            updateStarCount(songId);
+            
+            // 获取当前的 star 数量
+            const starElement = document.getElementById(`star-count-${songId}`);
+            let currentStarCount = parseInt(starElement.textContent, 10);
+            
+            // 如果当前 star 数量有效，进行自增操作
+            if (!isNaN(currentStarCount)) {
+                updateStarCount(songId, currentStarCount + 1); // 手动自增 star 数量
+            }
         }
     })
     .catch(error => {
@@ -84,19 +97,22 @@ function starSong(songId) {
 }
 
 // 更新 star 数量
-function updateStarCount(songId) {
-    const starElement = document.querySelector(`tr[data-id='${songId}'] .star-count`);
+function updateStarCount(songId, newStarCount) {
+    const starElement = document.getElementById(`star-count-${songId}`);
+    
     if (starElement) {
-        let currentStarCount = parseInt(starElement.textContent, 10);
-        currentStarCount += 1;
-        starElement.textContent = currentStarCount;
+        starElement.textContent = newStarCount; // 更新 star 数量
+    } else {
+        console.error(`Star element for songId ${songId} not found`);
+    }
 
-        const starButton = document.querySelector(`tr[data-id='${songId}'] input[type='checkbox']`);
-        if (starButton) {
-            starButton.checked = true; // 将星星状态更新为已点赞
-        }
+    const starButton = document.querySelector(`tr[data-id='${songId}'] input[type='checkbox']`);
+    if (starButton) {
+        starButton.checked = true; // 更新为已点赞状态
     }
 }
+
+
 
 // 打开模态窗口
 function openModal(songId) {

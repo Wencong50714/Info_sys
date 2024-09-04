@@ -94,7 +94,8 @@ label {
     font-weight: bold;
 }
 
-input[type="text"], textarea {
+input[type="text"],
+textarea {
     width: 100%;
     padding: 12px;
     margin-top: 5px;
@@ -112,11 +113,13 @@ textarea {
     min-height: 100px;
 }
 
-input::placeholder, textarea::placeholder {
+input::placeholder,
+textarea::placeholder {
     color: rgba(255, 255, 255, 0.6);
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
     background-color: rgba(255, 255, 255, 0.3);
 }
 
@@ -143,11 +146,14 @@ table {
     background-color: rgba(255, 255, 255, 0.05);
 }
 
-table, th, td {
+table,
+th,
+td {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-th, td {
+th,
+td {
     padding: 12px;
     text-align: left;
     color: #fff;
@@ -168,7 +174,8 @@ tbody tr:hover {
 /* Action按钮的容器，使用flexbox进行水平排列 */
 .action-buttons {
     display: flex;
-    gap: 10px; /* 控制按钮之间的间距 */
+    gap: 10px;
+    /* 控制按钮之间的间距 */
 }
 
 button {
@@ -199,18 +206,21 @@ button:hover {
 
 /* 模态窗口的基础样式 */
 .modal {
-    display: none; /* 默认隐藏 */
+    display: none;
+    /* 默认隐藏 */
     position: fixed;
     z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* 背景半透明黑色 */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 背景半透明黑色 */
     justify-content: center;
     align-items: center;
     opacity: 0;
-    transition: opacity 0.5s ease; /* 透明度渐变效果 */
+    transition: opacity 0.5s ease;
+    /* 透明度渐变效果 */
 }
 
 .modal-content {
@@ -222,25 +232,32 @@ button:hover {
     margin: auto;
     color: #fff;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    transform: scale(0.7); /* 初始缩小 */
-    transition: transform 0.3s ease, opacity 0.5s ease; /* 缩放和透明度过渡效果 */
+    transform: scale(0.7);
+    /* 初始缩小 */
+    transition: transform 0.3s ease, opacity 0.5s ease;
+    /* 缩放和透明度过渡效果 */
     opacity: 0;
 }
 
 /* 当模态窗口打开时，应用显示样式 */
 .modal.show {
-    opacity: 1; /* 透明度渐变至完全可见 */
+    opacity: 1;
+    /* 透明度渐变至完全可见 */
 }
 
 .modal.show .modal-content {
-    transform: scale(1); /* 缩放回正常大小 */
-    opacity: 1; /* 内容完全可见 */
+    transform: scale(1);
+    /* 缩放回正常大小 */
+    opacity: 1;
+    /* 内容完全可见 */
 }
 
 /* 当模态窗口关闭时，透明度和缩放动画会渐出 */
 .modal.hide .modal-content {
-    transform: scale(0.7); /* 缩小动画 */
-    opacity: 0; /* 渐出效果 */
+    transform: scale(0.7);
+    /* 缩小动画 */
+    opacity: 0;
+    /* 渐出效果 */
 }
 
 .modal.hide {
@@ -256,7 +273,8 @@ button:hover {
     cursor: pointer;
 }
 
-.close:hover, .close:focus {
+.close:hover,
+.close:focus {
     color: #f39c12;
     text-decoration: none;
 }
@@ -264,4 +282,44 @@ button:hover {
 
 .modal.hide {
     opacity: 0;
+}
+
+/* 返回按钮样式 */
+/* From Uiverse.io by Jedi-hongbin */
+#back-btn_1 {
+    display: flex;
+    height: 3em;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee4b;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    background: #ff6b81;
+    color: #f0f0f0;
+    position: absolute;
+    top: 5em;
+    left: 5em;
+}
+
+#back-btn_1>svg {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+    font-weight: 200;
+    transition: all 0.4s ease-in;
+    color: #f0f0f0;
+}
+
+#back-btn_1:hover>svg {
+    font-size: 1.2em;
+    transform: translateX(-5px);
+}
+
+#back-btn_1:hover {
+    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    transform: translateY(-2px);
 }

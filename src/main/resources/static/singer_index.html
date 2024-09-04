@@ -3,23 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome</title>
-    <link rel="stylesheet" href="./css/singer.css">
-   
+    <title>Welcome to Singer Home</title>
+    <link rel="stylesheet" href="./css/singer_index.css">
 </head>
 
 <body onload="singer_load()">
+
+<!-- 欢迎标题 -->
 <h1>Welcome to Singer Home</h1>
 
-<p id="output"></p> <!-- 用于显示歌手的名字 -->
+<!-- 显示歌手名字 -->
+<p id="output"></p>
 
-<form id="songForm" action="/submit" method="post" onsubmit="return handleSubmit(event)">
-    <label for="song-name">请输入你想创建的歌曲名称:</label>
-    <input type="text" id="song-name" name="songName" placeholder="请输入歌曲名称" required>
-    <input type="submit" value="提交">
-</form>
+<!-- 返回按钮 -->
+<button id="back-btn"  onclick="location.href='./login.html'">
+    <svg height="16" width="16" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 1024 1024"><path d="M874.690416 495.52477c0 11.2973-9.168824 20.466124-20.466124 20.466124l-604.773963 0 188.083679 188.083679c7.992021 7.992021 7.992021 20.947078 0 28.939099-4.001127 3.990894-9.240455 5.996574-14.46955 5.996574-5.239328 0-10.478655-1.995447-14.479783-5.996574l-223.00912-223.00912c-3.837398-3.837398-5.996574-9.046027-5.996574-14.46955 0-5.433756 2.159176-10.632151 5.996574-14.46955l223.019353-223.029586c7.992021-7.992021 20.957311-7.992021 28.949332 0 7.992021 8.002254 7.992021 20.957311 0 28.949332l-188.073446 188.073446 604.753497 0C865.521592 475.058646 874.690416 484.217237 874.690416 495.52477z"></path></svg>
+    <span>Back</span>
+  </button>
 
-<h1>Song List</h1>
+
+<!-- 创建歌曲的表单 -->
+<div class="form-container">
+    <form id="songForm" action="/submit" method="post" onsubmit="return handleSubmit(event)">
+        <label for="song-name">请输入你想创建的歌曲名称:</label>
+        <input type="text" id="song-name" name="songName" placeholder="请输入歌曲名称" required>
+        <input type="submit" value="提交">
+    </form>
+</div>
+
+<!-- 歌曲列表标题 -->
+<h2>Song List</h2>
+
+<!-- 歌曲列表表格 -->
 <table id="songTable">
     <thead>
     <tr>
@@ -30,12 +45,11 @@
     </tr>
     </thead>
     <tbody>
-    <!-- Data will be inserted here -->
+    <!-- 动态插入数据 -->
     </tbody>
 </table>
 
 <script src="js/singer_index.js"></script>
 
 </body>
-
 </html>
