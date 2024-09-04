@@ -13,7 +13,7 @@ public interface SingerMapper {
 
     String getSingerName(String id);
 
-    void insertSong(String songname, String singerId);
+    void insertSong(String songname, String singerId, String singerName);
 
     List<Song> getSong(String singerId);
 }
