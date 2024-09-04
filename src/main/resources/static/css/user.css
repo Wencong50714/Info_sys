@@ -1,80 +1,198 @@
-h1, #output {
-    margin: 20px 0;
-    text-align: center;
-}
+/* 全局样式 */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, #1e1e1e 0%, #282828 100%);
+    color: #fff;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     height: 100vh;
-    margin: 0;
-}
-
-/* 在页面加载时设置透明度为 0 */
-body {
+    background-attachment: fixed;
+    background-size: cover;
     opacity: 0;
     transition: opacity 1s ease-in;
 }
 
-/* 页面完全加载后，使页面完全可见 */
 body.fade-in {
     opacity: 1;
 }
 
-.container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
-}
-.container h2 {
+h1 {
+    font-size: 48px;
+    color: #ff4e50;
     text-align: center;
+    margin-bottom: 40px;
+    font-weight: bold;
+}
+
+/* 醒目展示用户名称 */
+.user-info {
     margin-bottom: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: #00ccff;
+    text-align: center;
+    left: 3ch;
+    top: 5ch;
+    position: absolute;
 }
-.form-group {
-    margin-bottom: 15px;
+
+.username {
+    font-size: 46px;
+    color: #00ffcc;
 }
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-}
-.form-group input,
-.form-group textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-.form-group textarea {
-    resize: vertical;
-    height: 80px;
-}
-.submit-btn {
-    width: 100%;
+
+/* 跳转按钮样式 */
+.btn {
+    width: 200px;
     padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-bottom: 10px;
-}
-.submit-btn:hover {
-    background-color: #0056b3;
-}
-.delete-btn {
-    width: 100%;
-    padding: 10px;
+    margin-top: 20px;
     background-color: #dc3545;
     color: white;
+    font-size: 16px;
+    font-weight: bold;
     border: none;
-    border-radius: 4px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    position: absolute;
+    left: 25ch;
+    top: 40ch;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+    left: 45%;
+    position: absolute;
+}
+
+h2 {
+    font-size: 28px;
+    color: #f0f0f0;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+    color: #fff;
+    font-weight: bold;
+}
+
+input[type="text"], textarea {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    border: none;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+input::placeholder, textarea::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+input:focus, textarea:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+button {
+    width: 50%;
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    background-color: #ff4e50;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+table, th, td {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+    color: #fff;
+}
+
+th {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+tbody tr:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Action按钮的容器，使用flexbox进行水平排列 */
+.action-buttons {
+    display: flex;
+    gap: 10px; /* 控制按钮之间的间距 */
+}
+
+button {
+    padding: 8px 16px;
+    border-radius: 5px;
+    border: none;
     cursor: pointer;
 }
-.delete-btn:hover {
-    background-color: #c82333;
+
+.view-songs-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button:hover {
+    background-color: #ff1c1f;
+    transform: scale(1.05);
 }

@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>歌曲点赞系统</title>
-    <link rel="stylesheet" href="./css/songs.css">
+    <title>歌曲库</title>
+    <link rel="stylesheet" href="./css/songs_repo.css">
 </head>
 <body onload="repo_load()">
 
@@ -29,9 +29,10 @@
 <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close" onclick="closeModal()">&times;</span>
-        <p>输入播放列表名称：</p>
-        <input type="text" id="playlistName" placeholder="播放列表名称">
-        <button class="submit-btn" onclick="submitPlaylist()">提交</button>
+        <h3>选择播放列表</h3>
+        <div id="playlistContainer">
+            <!-- 动态插入播放列表 -->
+        </div>
     </div>
 </div>
 

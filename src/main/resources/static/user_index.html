@@ -5,12 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome</title>
     <link rel="stylesheet" href="./css/user.css">
-    <script src="js/user.js"></script>
 </head>
 
 <body onload="user_load()">
-<h1>Welcome to User Home</h1>
-<p id="output"></p> <!-- 用于显示用户的名字 -->
+
+
+<!-- 醒目展示用户名 -->
+<div class="user-info">
+    <h1>Welcome to User Home</h1>
+    <p id="output" class="username"></p> <!-- 用于显示用户的名字 -->
+</div>
+
+<!-- 跳转按钮 -->
+<button class="btn" id="goToSongsRepo" onclick="location.href='./songs_repo.html'">Go to Songs Repository</button>
 
 <div class="container">
     <h2>Create Playlist</h2>
@@ -24,27 +31,40 @@
     </div>
     <button class="submit-btn" onclick="submitPlaylist()">Create Playlist</button>
 
-    <h2>Delete Playlist</h2>
-    <div class="form-group">
-        <label for="playlist-id">Playlist ID</label>
-        <input type="text" id="playlist-id" placeholder="Enter playlist ID">
-    </div>
-    <button class="delete-btn" onclick="deletePlaylist()">Delete Playlist</button>
-
-    <h2>Show Playlist</h2>
+    <h2>Your Playlists</h2>
     <table id="playlistTable">
         <thead>
         <tr>
             <th>ID</th>
-            <th>USER_ID</th>
             <th>NAME</th>
             <th>DESCRIPTION</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody>
         <!-- Data will be inserted here -->
         </tbody>
     </table>
+    
+    <!-- 用于显示歌曲的表格 -->
+    <h2 id="songsHeader" style="display:none;">Songs in Playlist</h2>
+    <table id="songsTable" style="display:none;">
+        <thead>
+        <tr>
+            <th>Song ID</th>
+            <th>Singer Name</th>
+            <th>Title</th>
+            <th>Rating</th>
+        </tr>
+        </thead>
+        <tbody>
+        <!-- Songs will be inserted here -->
+        </tbody>
+    </table>
 </div>
+
+
+
+<script src="js/user.js"></script>
 </body>
 </html>
