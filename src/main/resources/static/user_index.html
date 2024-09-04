@@ -46,21 +46,26 @@
         </tbody>
     </table>
     
-    <!-- 用于显示歌曲的表格 -->
-    <h2 id="songsHeader" style="display:none;">Songs in Playlist</h2>
-    <table id="songsTable" style="display:none;">
-        <thead>
-        <tr>
-            <th>Song ID</th>
-            <th>Singer Name</th>
-            <th>Title</th>
-            <th>Rating</th>
-        </tr>
-        </thead>
-        <tbody>
-        <!-- Songs will be inserted here -->
-        </tbody>
-    </table>
+    <!-- 歌曲列表模态窗口 -->
+<div id="songsModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeSongsModal()">&times;</span>
+        <h2>Songs in Playlist</h2>
+        <table id="songsTable">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Singer</th>
+                    <th>Title</th>
+                    <th>Stars</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- 动态插入歌曲数据 -->
+            </tbody>
+        </table>
+    </div>
+</div>
 </div>
 
 

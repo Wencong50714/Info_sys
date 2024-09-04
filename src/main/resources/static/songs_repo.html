@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>歌曲库</title>
+    <title>歌曲点赞系统</title>
     <link rel="stylesheet" href="./css/songs_repo.css">
 </head>
 <body onload="repo_load()">
@@ -25,9 +25,10 @@
     </tbody>
 </table>
 
-<!-- 弹窗 -->
+<!-- 模态框 -->
 <div id="myModal" class="modal">
     <div class="modal-content">
+        <!-- 将关闭按钮放置在右上角 -->
         <span class="close" onclick="closeModal()">&times;</span>
         <h3>选择播放列表</h3>
         <div id="playlistContainer">

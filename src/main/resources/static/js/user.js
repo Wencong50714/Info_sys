@@ -192,11 +192,33 @@ function getPlaylistSongs(playlistId) {
     });
 }
 
-// 在表格中显示歌曲列表
+
+
+// 打开模态窗口，并添加动画效果
+function openSongsModal() {
+    const modal = document.getElementById('songsModal');
+    modal.style.display = 'flex'; // 先显示模态窗口
+    setTimeout(() => {
+        modal.classList.add('show'); // 延迟添加显示类，确保过渡效果
+    }, 10); // 微小的延迟，以触发过渡效果
+}
+
+// 关闭模态窗口，并添加动画效果
+function closeSongsModal() {
+    const modal = document.getElementById('songsModal');
+    modal.classList.remove('show'); // 移除显示类，触发过渡效果
+    modal.classList.add('hide'); // 添加隐藏类
+
+    // 延迟隐藏模态框，等待动画结束
+    setTimeout(() => {
+        modal.style.display = 'none';
+        modal.classList.remove('hide'); // 移除隐藏类，为下次显示准备
+    }, 500); // 与 CSS 中的动画持续时间匹配
+}
+
+// 在模态窗口中显示歌曲列表
 function displaySongsInTable(songs) {
     const songsTableBody = document.querySelector('#songsTable tbody');
-    const songsHeader = document.getElementById('songsHeader');
-    const songsTable = document.getElementById('songsTable');
 
     // 清空现有的歌曲数据
     songsTableBody.innerHTML = '';
@@ -204,14 +226,9 @@ function displaySongsInTable(songs) {
     // 如果没有歌曲则隐藏表格
     if (songs.length === 0) {
         alert('No songs in this playlist');
-        songsHeader.style.display = 'none';
-        songsTable.style.display = 'none';
+        closeSongsModal(); // 没有歌曲时关闭模态窗口
         return;
     }
-
-    // 显示歌曲表格
-    songsHeader.style.display = 'block';
-    songsTable.style.display = 'table';
 
     // 遍历并插入歌曲数据
     songs.forEach(song => {
@@ -224,6 +241,9 @@ function displaySongsInTable(songs) {
         `;
         songsTableBody.appendChild(row);
     });
+
+    // 打开模态窗口
+    openSongsModal();
 }
 
 

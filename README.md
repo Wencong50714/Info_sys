@@ -34,13 +34,15 @@
 以下是一些开发目标
 
 前端:
-- [ ] 用户可以在[用户界面](./src/main/resources/static/user_index.html) 里跳转到 [songs_repo](./src/main/resources/static/songs_repo.html)
+- [x] 用户可以在[用户界面](./src/main/resources/static/user_index.html) 里跳转到 [songs_repo](./src/main/resources/static/songs_repo.html)
 - [x] 美化 [注册界面](./src/main/resources/static/register.html)
 - [x] 美化 [登录界面](./src/main/resources/static/login.html)
 - [ ] 美化 [歌手界面](./src/main/resources/static/singer_index.html)
 - [x] 将前端 [HTML](./src/main/resources/static) 中的 JavaScript 脚本提取成单独的文件，并将其存放在 js 文件夹下，同时修改 HTML 代码，使其更加整洁
 - [x] 将前端 [HTML](./src/main/resources/static) 中的 样式 CSS 提取成单独的文件, 将其放在 css 文件夹下, 同时修改 HTML 代码，使其更加整洁
-- [ ] 完成 [user.js](./src/main/resources/static/js/user.js) 所留 TODO
+- [x] 完成 [user.js](./src/main/resources/static/js/user.js) 所留 TODO
+- [ ] 添加删除playlist里歌曲的功能
+- [ ] 点赞和取消点赞功能
  
 后端:
 - [x] 完成用户/歌手的注册功能
