@@ -146,106 +146,106 @@ function fetchPlaylist() {
 }
 
 
-function addSongToPlaylist () {
-    // TODO(DWG): 填充下面的 playlist_id 和 song_id
-    const data = `playlist_id=${}&song_id=${}`;
+// function addSongToPlaylist () {
+//     // TODO(DWG): 填充下面的 playlist_id 和 song_id
+//     const data = `playlist_id=${}&song_id=${}`;
 
-    fetch("/user/add_song_to_playlist", {  // 动态 URL
-        method: 'POST',  // 如果你更改了 Spring Boot 方法的 HTTP 方法为 POST
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: data
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.code === 508) {
-                // TODO(DWG): 歌曲不存在, 做出相应处理
-            } else if (data.code == 509) {
-                // TODO(DWG): 播放列表不存在, 做出相应处理
-            }
+//     fetch("/user/add_song_to_playlist", {  // 动态 URL
+//         method: 'POST',  // 如果你更改了 Spring Boot 方法的 HTTP 方法为 POST
+//         headers: {
+//             'Content-Type': 'application/x-www-form-urlencoded'
+//         },
+//         body: data
+//     })
+//         .then(response => response.json())
+//         .then(data => {
+//             if (data.code === 508) {
+//                 // TODO(DWG): 歌曲不存在, 做出相应处理
+//             } else if (data.code == 509) {
+//                 // TODO(DWG): 播放列表不存在, 做出相应处理
+//             }
 
-            // TODO(DWG): 添加成功, 做出相应处理
-        })
-}
+//             // TODO(DWG): 添加成功, 做出相应处理
+//         })
+// }
 
-function getPlaylistSongs() {
-    // TODO(DWG): 填充下面的 playlist_id
-    const data = `playlist_id=${}`;
+// function getPlaylistSongs() {
+//     // TODO(DWG): 填充下面的 playlist_id
+//     const data = `playlist_id=${}`;
 
-    fetch("/user/add_song_to_playlist", {  // 动态 URL
-        method: 'POST',  // 如果你更改了 Spring Boot 方法的 HTTP 方法为 POST
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: data
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.code == 509) {
-                // TODO(DWG): 播放列表不存在, 做出相应处理
-            }
+//     fetch("/user/add_song_to_playlist", {  // 动态 URL
+//         method: 'POST',  // 如果你更改了 Spring Boot 方法的 HTTP 方法为 POST
+//         headers: {
+//             'Content-Type': 'application/x-www-form-urlencoded'
+//         },
+//         body: data
+//     })
+//         .then(response => response.json())
+//         .then(data => {
+//             if (data.code == 509) {
+//                 // TODO(DWG): 播放列表不存在, 做出相应处理
+//             }
 
-            data.data.forEach(song => {
-                // TODO(DWG): 获取到列表中的所有歌曲, 对他们进行相应处理
+//             data.data.forEach(song => {
+//                 // TODO(DWG): 获取到列表中的所有歌曲, 对他们进行相应处理
 
-                // 下面是一个使用例子
-                // data.data.forEach(song => {
-                //     console.log(song.singerName);
-                //     const row = document.createElement('tr');
-                //     row.innerHTML = `
-                //     <td>${song.id}</td>
-                //     <td>${song.singerName}</td>
-                //     <td>${song.title}</td>
-                //     <td>${song.star}</td>
-                // `;
-                //     tableBody.appendChild(row);
-                // });
-            });
-        })
-}
+//                 // 下面是一个使用例子
+//                 // data.data.forEach(song => {
+//                 //     console.log(song.singerName);
+//                 //     const row = document.createElement('tr');
+//                 //     row.innerHTML = `
+//                 //     <td>${song.id}</td>
+//                 //     <td>${song.singerName}</td>
+//                 //     <td>${song.title}</td>
+//                 //     <td>${song.star}</td>
+//                 // `;
+//                 //     tableBody.appendChild(row);
+//                 // });
+//             });
+//         })
+// }
 
-function starSong() {
-    // TODO(DWG): 填充下面的 song_id
-    const data = `song_id=${}`;
+// function starSong() {
+//     // TODO(DWG): 填充下面的 song_id
+//     const data = `song_id=${}`;
 
-    fetch("/user/star_song", {  // 动态 URL
-        method: 'POST',  // 如果你更改了 Spring Boot 方法的 HTTP 方法为 POST
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: data
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.code == 508) {
-                // TODO(DWG): 歌曲不存在, 做出相应处理
-            }
+//     fetch("/user/star_song", {  // 动态 URL
+//         method: 'POST',  // 如果你更改了 Spring Boot 方法的 HTTP 方法为 POST
+//         headers: {
+//             'Content-Type': 'application/x-www-form-urlencoded'
+//         },
+//         body: data
+//     })
+//         .then(response => response.json())
+//         .then(data => {
+//             if (data.code == 508) {
+//                 // TODO(DWG): 歌曲不存在, 做出相应处理
+//             }
 
-            // TODO(DWG): 点赞成功
-        })
-}
+//             // TODO(DWG): 点赞成功
+//         })
+// }
 
-function unstarSong() {
-    // TODO(DWG): 填充下面的 song_id
-    const data = `song_id=${}`;
+// function unstarSong() {
+//     // TODO(DWG): 填充下面的 song_id
+//     const data = `song_id=${}`;
 
-    fetch("/user/unstar_song", {  // 动态 URL
-        method: 'POST',  // 如果你更改了 Spring Boot 方法的 HTTP 方法为 POST
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-        },
-        body: data
-    })
-        .then(response => response.json())
-        .then(data => {
-            if (data.code == 508) {
-                // TODO(DWG): 歌曲不存在, 做出相应处理
-            }
+//     fetch("/user/unstar_song", {  // 动态 URL
+//         method: 'POST',  // 如果你更改了 Spring Boot 方法的 HTTP 方法为 POST
+//         headers: {
+//             'Content-Type': 'application/x-www-form-urlencoded'
+//         },
+//         body: data
+//     })
+//         .then(response => response.json())
+//         .then(data => {
+//             if (data.code == 508) {
+//                 // TODO(DWG): 歌曲不存在, 做出相应处理
+//             }
 
-            // TODO(DWG): 取消点赞成功
-        })
-}
+//             // TODO(DWG): 取消点赞成功
+//         })
+// }
 
 
 // login.js
