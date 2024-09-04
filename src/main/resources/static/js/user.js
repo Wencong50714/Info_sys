@@ -158,33 +158,41 @@ function addPlaylistToTable(playlist) {
     tableBody.appendChild(row); // 将新行插入表格
 }
 
-// 实现查看歌曲功能
+// 用于查看播放列表中的歌曲
 function viewPlaylistSongs(playlistId) {
+    // 调用 getPlaylistSongs 函数，传递 playlistId 来获取该播放列表中的所有歌曲
+    getPlaylistSongs(playlistId);
+}
+
+// 获取播放列表的所有歌曲并展示
+function getPlaylistSongs(playlistId) {
     const data = `playlist_id=${encodeURIComponent(playlistId)}`;
 
-    fetch("/user/fetch_playlist_songs", {  // 假设后端提供了此 API
+    // 发起请求获取播放列表中的所有歌曲
+    fetch("/user/get_playlist_songs", {  // 动态 URL，假设后端已实现该 API
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: data
+        body: data  // 发送的请求体，包含 playlist_id
     })
     .then(response => response.json())
     .then(data => {
         if (data.code === 509) {
-            console.log('Error: Playlist does not exist');
-            alert('Playlist does not exist!');
+            alert('Playlist does not exist!'); // 播放列表不存在时的处理
         } else {
             console.log('Success:', data);
-            displaySongsInTable(data.data); // 调用函数显示歌曲
+            // 获取到所有的歌曲，并调用显示函数
+            displaySongsInTable(data.data); // 调用 displaySongsInTable 显示歌曲列表
         }
     })
     .catch(error => {
         console.error('Error fetching songs:', error);
+        alert('Failed to fetch songs!');
     });
 }
 
-// 在表格中显示歌曲
+// 在表格中显示歌曲列表
 function displaySongsInTable(songs) {
     const songsTableBody = document.querySelector('#songsTable tbody');
     const songsHeader = document.getElementById('songsHeader');
@@ -217,6 +225,7 @@ function displaySongsInTable(songs) {
         songsTableBody.appendChild(row);
     });
 }
+
 
 
 

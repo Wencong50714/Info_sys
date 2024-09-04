@@ -173,7 +173,7 @@ function fetchPlaylist() {
 //     // TODO(DWG): 填充下面的 playlist_id
 //     const data = `playlist_id=${}`;
 
-//     fetch("/user/add_song_to_playlist", {  // 动态 URL
+//     fetch("/user/get_playlist_songs", {  // 动态 URL
 //         method: 'POST',  // 如果你更改了 Spring Boot 方法的 HTTP 方法为 POST
 //         headers: {
 //             'Content-Type': 'application/x-www-form-urlencoded'
