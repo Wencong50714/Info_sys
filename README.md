@@ -35,11 +35,11 @@
 
 前端:
 - [ ] 用户可以在[用户界面](./src/main/resources/static/user_index.html) 里跳转到 [songs_repo](./src/main/resources/static/songs_repo.html)
-- [ ] 美化 [注册界面](./src/main/resources/static/register.html)
-- [ ] 美化 [登录界面](./src/main/resources/static/login.html)
+- [x] 美化 [注册界面](./src/main/resources/static/register.html)
+- [x] 美化 [登录界面](./src/main/resources/static/login.html)
 - [ ] 美化 [歌手界面](./src/main/resources/static/singer_index.html)
-- [ ] 将前端 [HTML](./src/main/resources/static) 中的 JavaScript 脚本提取成单独的文件，并将其存放在 js 文件夹下，同时修改 HTML 代码，使其更加整洁
-- [ ] 将前端 [HTML](./src/main/resources/static) 中的 样式 CSS 提取成单独的文件, 将其放在 css 文件夹下, 同时修改 HTML 代码，使其更加整洁
+- [x] 将前端 [HTML](./src/main/resources/static) 中的 JavaScript 脚本提取成单独的文件，并将其存放在 js 文件夹下，同时修改 HTML 代码，使其更加整洁
+- [x] 将前端 [HTML](./src/main/resources/static) 中的 样式 CSS 提取成单独的文件, 将其放在 css 文件夹下, 同时修改 HTML 代码，使其更加整洁
 - [ ] 完成 [user.js](./src/main/resources/static/js/user.js) 所留 TODO
  
 后端:
