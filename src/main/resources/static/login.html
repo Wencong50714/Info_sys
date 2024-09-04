@@ -4,61 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .login-container {
-            background-color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-        }
-        .login-container h2 {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-        .login-container select,
-        .login-container input[type="text"],
-        .login-container input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .login-container button {
-            width: 100%;
-            padding: 10px;
-            background-color: #28a745;
-            border: none;
-            border-radius: 4px;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .login-container button:hover {
-            background-color: #218838;
-        }
-        .login-container .register-link {
-            text-align: center;
-            margin-top: 10px;
-        }
-        .login-container .register-link a {
-            color: #007bff;
-            text-decoration: none;
-        }
-        .login-container .register-link a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/login.css">
 </head>
 <body>
 <div class="login-container">
@@ -78,67 +24,6 @@
         <p>Don't have an account? <a href="./register.html">Register here</a></p>
     </div>
 </div>
-
-<script>
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        // 获取表单数据
-        const role = document.getElementById('role').value;
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-
-        // 根据选择的角色动态设置 URL
-        let url;
-        if (role === 'singer') {
-            url = '/singer/login';
-        } else if (role === 'admin') {
-            url = '/admin/login';
-        } else {
-            url = '/user/login';
-        }
-
-        // 创建要发送到后端的数据字符串 (username : password)
-        const data = `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
-        url = `${url}?${data}`;
-
-        console.log(url);
-
-        // 发送数据到后端
-        fetch(url, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.code === 200) {
-                    // 登录成功，跳转到相应页面
-                    var user_id = data.data;
-                    switch (role) {
-                        case 'user':
-                            window.location.href = '/user_index.html';
-                            // 存 id 到 localStorage 中
-                            localStorage.setItem("currentUser_token", user_id);
-                            break;
-                        case 'singer':
-                            window.location.href = '/singer_index.html';
-                            localStorage.setItem("currentUser_token", user_id);
-                            break;
-                        case 'admin':
-                            window.location.href = '/admin_index.html';
-                            break;
-                    }
-                } else {
-                    alert('Login failed! Please check your username and password.');
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                alert('Login failed! Please try again later.');
-            });
-    });
-</script>
+<script src="./js/login.js"></script>
 </body>
 </html>

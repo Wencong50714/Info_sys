@@ -1,0 +1,140 @@
+/* 全局样式 */
+body {
+    font-family: 'Helvetica Neue', sans-serif;
+    background: linear-gradient(135deg, #1e1e1e 0%, #282828 100%);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-attachment: fixed;
+    background-size: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+body.fade-in {
+    opacity: 1;
+}
+
+/* 登录框样式 */
+.login-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    width: 350px;
+    text-align: center;
+}
+
+.login-container h2 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #f0f0f0;
+}
+
+/* 输入框和按钮样式 */
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 324px;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+    outline: none;
+    transition: background-color 0.3s ease;
+}
+
+.login-container input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.login-container input:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 按钮样式 */
+.login-container button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 30px;
+    border: none;
+    margin-top: 15px;
+    background-color: #ff4e50;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.login-container button:hover {
+    background-color: #ff1c1f;
+    transform: scale(1.05);
+}
+
+/* 注册链接样式 */
+.login-container .register-link {
+    margin-top: 15px;
+    color: #f0f0f0;
+}
+
+.login-container .register-link a {
+    color: #ff4e50;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-container .register-link a:hover {
+    text-decoration: underline;
+}
+
+/* 美化下拉列表 */
+.login-container select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    font-size: 16px;
+    appearance: none; /* 隐藏默认的下拉箭头 */
+    outline: none;
+    transition: background-color 0.3s ease, border 0.3s ease;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down"><polyline points="6 9 12 15 18 9"/></svg>');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 10px) center; /* 定义下拉箭头的位置 */
+    background-size: 14px;
+}
+
+/* 当用户悬停或点击输入框时，改变背景颜色 */
+.login-container select:hover,
+.login-container select:focus {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid #ff4e50;
+}
+
+/* 美化下拉列表项 */
+.login-container select option {
+    background-color: #1e1e1e;
+    color: #fff;
+    padding: 10px;
+}
+
+
+/* 渐入效果 */
+body {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+body.fade-in {
+    opacity: 1;
+}

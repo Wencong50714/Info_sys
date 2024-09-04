@@ -7,6 +7,17 @@ body {
     color: #ffffff;
 }
 
+/* 在页面加载时设置透明度为 0 */
+body {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+/* 页面完全加载后，使页面完全可见 */
+body.fade-in {
+    opacity: 1;
+}
+
 
 #audio-visualizer {
     position: absolute;

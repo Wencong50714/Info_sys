@@ -116,3 +116,30 @@ function fetchSongs() {
             alert('Submit song failed!');
         });
 }
+
+fetchSongs();
+
+
+// login.js
+document.addEventListener('DOMContentLoaded', function() {
+    document.body.classList.add('fade-in'); // 页面加载后添加fade-in类，实现渐入效果
+});
+
+// 跳转渐入效果
+
+document.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function(event) {
+        event.preventDefault(); // 阻止立即跳转
+        const href = this.href; // 获取目标链接
+
+        // 触发渐出效果
+        document.body.classList.remove('fade-in');
+        document.body.style.opacity = 0;
+
+        // 延迟跳转，等待过渡动画完成
+        setTimeout(function() {
+            window.location.href = href;
+        }, 1000); // 1秒的延迟与CSS中的transition时间匹配
+    });
+});
+

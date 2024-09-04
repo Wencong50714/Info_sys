@@ -4,67 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login/Register</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .container {
-            max-width: 400px;
-            width: 100%;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
-        }
-        h2 {
-            text-align: center;
-        }
-        .form-group {
-            margin-bottom: 15px;
-        }
-        label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        input[type="text"], input[type="password"] {
-            width: 100%;
-            padding: 8px;
-            box-sizing: border-box;
-        }
-        .form-group input[type="checkbox"] {
-            display: inline-block;
-            width: auto;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <link rel="stylesheet" href="./css/register.css">
 </head>
 <body>
 <div class="container">
     <h2>Register</h2>
     <form id="registerForm">
         <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" id="username" name="username" required>
+            <input type="text" id="username" name="username" placeholder="Username"required>
         </div>
         <div class="form-group">
-            <label for="password">Password</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
         </div>
         <div class="form-group">
             <input type="checkbox" id="isSinger" name="isSinger">
@@ -73,49 +23,6 @@
         <button type="submit">Register</button>
     </form>
 </div>
-
-<script>
-    document.getElementById('registerForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        console.log("DEBUG: ...")
-
-        // 获取表单数据
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
-        const isSinger = document.getElementById('isSinger').checked;
-
-        // 动态设置 URL
-        const url = isSinger ? '/singer/register' : '/user/register';
-
-        console.log(url)
-
-        // 创建要发送到后端的数据字符串 (URL encoded)
-        const data = `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`;
-
-        console.log(data)
-
-        // 发送数据到后端
-        fetch(url, {  // 动态 URL
-            method: 'POST',  // 如果你更改了 Spring Boot 方法的 HTTP 方法为 POST
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
-            },
-            body: data
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                alert('Registration successful!');
-
-                // 注册成功, 跳转到登录界面
-                window.location.href = '/login.html';
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                alert('Registration failed!');
-            });
-    });
-</script>
+<script src="js/register.js"></script>
 </body>
 </html>
