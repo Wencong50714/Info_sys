@@ -52,29 +52,27 @@
     </table>
     
     <!-- 歌曲列表模态窗口 -->
-<div id="songsModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeSongsModal()">&times;</span>
-        <h2>Songs in Playlist</h2>
-        <table id="songsTable">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Singer</th>
-                    <th>Title</th>
-                    <th>Stars</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- 动态插入歌曲数据 -->
-            </tbody>
-        </table>
+    <div id="songsModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeSongsModal()">&times;</span>
+            <h2>Songs in Playlist</h2>
+            <table id="songsTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Singer</th>
+                        <th>Title</th>
+                        <th>Stars</th>
+                        <th>Action</th> <!-- 添加 Action 列 -->
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- 动态插入歌曲数据 -->
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
-</div>
-
-
-
-<script src="js/user.js"></script>
+<script src="js/user_index.js"></script>
 </body>
 </html>

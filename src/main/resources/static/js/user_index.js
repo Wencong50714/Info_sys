@@ -31,6 +31,9 @@ function getName() {
     });
 }
 
+
+
+
 function submitPlaylist() {
     const name = document.getElementById('playlist-name').value;
     const description = document.getElementById('playlist-description').value;
@@ -158,9 +161,11 @@ function addPlaylistToTable(playlist) {
     tableBody.appendChild(row); // 将新行插入表格
 }
 
+let currentPlaylistId = null;
+
 // 用于查看播放列表中的歌曲
 function viewPlaylistSongs(playlistId) {
-    // 调用 getPlaylistSongs 函数，传递 playlistId 来获取该播放列表中的所有歌曲
+    currentPlaylistId = playlistId; // 存储当前播放列表ID
     getPlaylistSongs(playlistId);
 }
 
@@ -168,22 +173,19 @@ function viewPlaylistSongs(playlistId) {
 function getPlaylistSongs(playlistId) {
     const data = `playlist_id=${encodeURIComponent(playlistId)}`;
 
-    // 发起请求获取播放列表中的所有歌曲
-    fetch("/user/get_playlist_songs", {  // 动态 URL，假设后端已实现该 API
+    fetch("/user/get_playlist_songs", {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded'
         },
-        body: data  // 发送的请求体，包含 playlist_id
+        body: data
     })
     .then(response => response.json())
     .then(data => {
         if (data.code === 509) {
-            alert('Playlist does not exist!'); // 播放列表不存在时的处理
+            alert('Playlist does not exist!');
         } else {
-            console.log('Success:', data);
-            // 获取到所有的歌曲，并调用显示函数
-            displaySongsInTable(data.data); // 调用 displaySongsInTable 显示歌曲列表
+            displaySongsInTable(data.data, playlistId); // 将 playlistId 传递给 displaySongsInTable
         }
     })
     .catch(error => {
@@ -216,6 +218,8 @@ function closeSongsModal() {
     }, 500); // 与 CSS 中的动画持续时间匹配
 }
 
+
+
 // 在模态窗口中显示歌曲列表
 function displaySongsInTable(songs) {
     const songsTableBody = document.querySelector('#songsTable tbody');
@@ -238,12 +242,45 @@ function displaySongsInTable(songs) {
             <td>${song.singerName}</td>
             <td>${song.title}</td>
             <td>${song.star}</td>
+            <td>
+                <button class="delete-song-btn" onclick="removeSongFromPlaylist(${song.id})">Delete</button>
+            </td>
         `;
         songsTableBody.appendChild(row);
     });
 
     // 打开模态窗口
     openSongsModal();
+}
+
+
+
+// 删除播放列表中的歌曲
+function removeSongFromPlaylist(songId) {
+    const playlistId = currentPlaylistId; // 假设当前播放列表ID存储在此变量中
+
+    const data = `playlist_id=${encodeURIComponent(playlistId)}&song_id=${encodeURIComponent(songId)}`;
+
+    fetch("/user/remove_song_from_playlist", {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: data
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.code === 200) {
+            alert('Song removed from playlist successfully!');
+            // 重新加载歌曲列表
+            getPlaylistSongs(playlistId);
+        } else {
+            alert('Failed to remove song from playlist!');
+        }
+    })
+    .catch(error => {
+        console.error('Error removing song:', error);
+    });
 }
 
 

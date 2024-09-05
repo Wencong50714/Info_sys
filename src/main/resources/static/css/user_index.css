@@ -134,11 +134,7 @@ button {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: 10px;
 }
-
-
-
 table {
     width: 100%;
     border-collapse: collapse;
@@ -284,6 +280,9 @@ button:hover {
     opacity: 0;
 }
 
+.delete-song-btn {
+    width: auto;
+}
 /* 返回按钮样式 */
 /* From Uiverse.io by Jedi-hongbin */
 #back-btn_1 {
