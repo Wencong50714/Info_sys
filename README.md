@@ -3,7 +3,6 @@
 ### Table
 
 系统中有三种账号, 分别为
-- Admin
 - User
 - Singer
 
