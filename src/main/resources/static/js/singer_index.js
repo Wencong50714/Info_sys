@@ -1,11 +1,11 @@
 var id;
 
 function singer_load() {
-    getName();
+    getSingerName();
     fetchSongs();
 }
 
-function getName(is_singer) {
+function getSingerName() {
 
     // Get id
     id = localStorage.getItem('currentUser_token');
@@ -17,7 +17,7 @@ function getName(is_singer) {
     console.log(id);
 
     // 构建 URL
-    const url = is_singer ? '/singer/getname' : '/user/getname';
+    const url ='/singer/getname';
 
     fetch(url, {
         method: 'POST',
